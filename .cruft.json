@@ -1,0 +1,18 @@
+{
+  "template": "https://github.com/woltapp/wolt-python-package-cookiecutter",
+  "commit": "4eecc9c4d27e3c9321438bc1fdaf717bec5eadf6",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "author_name": "Maximilian Ernestus",
+      "author_email": "maximilian@ernestus.de",
+      "github_username": "ernestum",
+      "project_name": "Data Samples Printer",
+      "project_slug": "data-samples-printer",
+      "package_name": "data_samples_printer",
+      "project_short_description": "Don't be just mean and standart, print histograms as unicode instead!",
+      "_template": "https://github.com/woltapp/wolt-python-package-cookiecutter"
+    }
+  },
+  "directory": null
+}
