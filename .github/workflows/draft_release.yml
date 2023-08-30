@@ -7,7 +7,6 @@ on:
         description: 'The version number (e.g. 1.2.3) OR one of: patch|minor|major|prepatch|preminor|premajor|prerelease'
         required: true
         default: 'patch'
-{% raw %}
 jobs:
   draft-release:
     runs-on: ubuntu-latest
@@ -49,4 +48,4 @@ jobs:
           tag_name: ${{ steps.updated_version.outputs.version }}
           release_name: Release ${{ steps.updated_version.outputs.version }}
           body: ${{ steps.changelog.outputs.body }}
-          draft: true{% endraw %}
+          draft: true

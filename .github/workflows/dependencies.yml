@@ -3,7 +3,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 1 * *"
-{% raw %}
 jobs:
   auto-update-dependencies:
     runs-on: ubuntu-latest
@@ -54,4 +53,4 @@ jobs:
           title: "[Actions] Auto-Update dependencies"
           body: ${{ steps.get_outdated_dependencies.outputs.body }}
           branch: chore/update-dependencies
-          delete-branch: true{% endraw %}
+          delete-branch: true
