@@ -81,6 +81,7 @@ def pprint_hist(
 ) -> None:  # pragma: no cover
     if markdown_mode:
         print_footer = True
+        print_header = True
     print_hist(
         *xs,
         max_bins=max_bins,
@@ -89,6 +90,31 @@ def pprint_hist(
         max_value=max_value,
         annotations=annotations,
         markdown_mode=markdown_mode,
+        print_header=print_header,
+        print_footer=print_footer,
+        **named_xs,
+    )
+
+
+def mprint_hist(
+    *xs: Sequence[float],
+    max_bins: int = 50,
+    num_bins: Optional[int] = None,
+    min_value: Optional[float] = None,
+    max_value: Optional[float] = None,
+    annotations: Annotations = Annotations.ADD_MEAN | Annotations.ADD_STD,
+    print_header: bool = False,
+    print_footer: bool = False,
+    **named_xs: Sequence[float],
+) -> None:
+    pprint_hist(
+        *xs,
+        max_bins=max_bins,
+        num_bins=num_bins,
+        min_value=min_value,
+        max_value=max_value,
+        annotations=annotations,
+        markdown_mode=True,
         print_header=print_header,
         print_footer=print_footer,
         **named_xs,
