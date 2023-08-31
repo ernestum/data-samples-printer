@@ -9,5 +9,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 - First draft of package
 
-[Unreleased]: https://github.com/ernestum/data-samples-printer/compare/0.0.1...master
+[Unreleased]: https://github.com/ernestum/data-samples-printer/compare/0.0.1...main
 [0.0.1]: https://github.com/ernestum/data-samples-printer/tree/0.0.1
