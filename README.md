@@ -24,6 +24,50 @@ Don't be just mean and standart, print histograms as unicode instead!
 pip install data-samples-printer
 ```
 
+## Basic Usage
+
+```python
+import data_samples_printer as dsp
+import numpy as np
+
+s1 = np.random.normal(size=100)
+s2 = np.random.normal(size=100, scale=0.2)
+
+# Plain printing
+dsp.print(s1)
+> ▁   ▃ ▁▃▁  ▃▃▅▇▅█▄▄▄▇▃▃█▄▅▇▄▃▃▁█▅█ ▁▃▃▁▃▁        ▁
+
+# Printing multiple samples aligns their range
+dsp.print(s1, s2)
+> ▁   ▃ ▁▃▁  ▃▃▅▇▅█▄▄▄▇▃▃█▄▅▇▄▃▃▁█▅█ ▁▃▃▁▃▁        ▁
+>                   ▁▂▃█▄▅▃▂▁
+
+# Printing with labels
+dsp.print(normal=s1, squeezed=s2)
+> ▁   ▃ ▁▃▁  ▃▃▅▇▅█▄▄▄▇▃▃█▄▅▇▄▃▃▁█▅█ ▁▃▃▁▃▁        ▁ normal
+>                    ▁▂▃█▄▅▃▂▁                       squeezed
+
+# Pretty printing
+dsp.pprint(s1, s2)
+> ▂ ▂▁▁ ▁▂▄▃▁▁▂▂▂▄▃▂█▃▃▂▃▂▂▂▁▃▂▄▃▂ ▁▂▁ ▁▁▂       ▁ ▁ 0.00 ±1.00
+>                 ▁▂▃▆█▅▆▄▁                          0.04 ±0.20
+
+dsp.mprint(normal=s1, squeezed=s2)
+> dist | mean | std | name
+> -----|------|-----|-----
+> `▕▁ ▂▁▁▁▁▁▃▁ ▂▆▂▁▅▅▅█▂▅▃▅█▃▇▆▂▂▂▂▂▂▅▃▁ ▁     ▁   ▂ ▁▏` | -0.04 | ±0.85 | normal
+> `▕                ▁ ▁▄▃█▆█▆▂▂                       ▏` | 0.01 | ±0.19 | squeezed
+> `▕-1.93                                         2.41▏` |
+```
+
+renders as:
+
+dist | mean | std | name
+-----|------|-----|-----
+`▕▁ ▂▁▁▁▁▁▃▁ ▂▆▂▁▅▅▅█▂▅▃▅█▃▇▆▂▂▂▂▂▂▅▃▁ ▁     ▁   ▂ ▁▏` | -0.04 | ±0.85 | normal
+`▕                ▁ ▁▄▃█▆█▆▂▂                       ▏` | 0.01 | ±0.19 | squeezed
+`▕-1.93                                         2.41▏` |
+
 ## Development
 
 * Clone this repository
