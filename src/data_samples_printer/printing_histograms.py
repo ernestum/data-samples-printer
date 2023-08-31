@@ -39,7 +39,13 @@ def print_hist(
         print(join_str.join(header))
 
     if markdown_mode:
+        # Print line below header to make markdown-compatible tables
         print("-|-".join("-" * len(i) for i in header))
+
+        # Wrap the histogram in backticks to enable fixed width rendering and make the
+        # histogram more compact
+        for idx, (hist, *_) in enumerate(annotated_hists):
+            annotated_hists[idx][0] = f"`{hist}`"
 
     print("\n".join(join_str.join(hl) for hl in annotated_hists))
 
