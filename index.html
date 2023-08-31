@@ -610,6 +610,10 @@ git push origin &lt;new release number&gt;
 <p><a href="https://github.com/ernestum/data-samples-printer/releases">GitHub releases</a> and publish it. When
  a release is published, it'll trigger <a href="https://github.com/ernestum/data-samples-printer/blob/master/.github/workflows/release.yml">release</a> workflow which creates PyPI
  release and deploys updated documentation.</p>
+<p>Then run</p>
+<pre><code class="language-shell">poetry run mkdocs gh-deploy --force
+</code></pre>
+<p>to update the documentation.</p>
 <h3 id="pre-commit">Pre-commit</h3>
 <p>Pre-commit hooks run all the auto-formatters (e.g. <code>black</code>, <code>isort</code>), linters (e.g. <code>mypy</code>, <code>flake8</code>), and other quality
  checks to make sure the changeset is in good shape before a commit/push happens.</p>
