@@ -60,6 +60,7 @@ pytest-cov = "*"
 python-kacl = "*"
 pyupgrade = "*"
 tryceratops = "*"
+hypothesis = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -75,7 +76,7 @@ include = '\.pyi?$'
 
 [tool.pytest.ini_options]
 addopts = """\
-    --cov data_samples_printer \
+    --cov src/data_samples_printer \
     --cov tests \
     --cov-report term-missing \
     --no-cov-on-fail \
