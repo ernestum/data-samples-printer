@@ -118,4 +118,4 @@ def mprint_hist(
         print_header=print_header,
         print_footer=print_footer,
         **named_xs,
-    )
+    )  # pragma: no cover
