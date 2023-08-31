@@ -6,7 +6,7 @@ import numpy as np
 
 # Note: we are not using whitespace here as the lowest value because it is often not
 # rendered with the same width as the other block characters even in fixed-with fonts.
-_DRAWING_CHARS = np.asarray(list("▁▂▃▄▅▆▇█"))
+_DRAWING_CHARS = np.asarray(list(" ▁▂▃▄▅▆▇█"))
 _NUM_DRAWING_CHARS = len(_DRAWING_CHARS)
 
 

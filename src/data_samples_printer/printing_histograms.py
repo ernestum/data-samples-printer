@@ -35,17 +35,21 @@ def print_hist(
 
     join_str = " | " if markdown_mode else " "
 
-    if print_header or markdown_mode:
+    if print_header:
         print(join_str.join(header))
 
     if markdown_mode:
-        # Print line below header to make markdown-compatible tables
-        print("-|-".join("-" * len(i) for i in header))
+        if print_header:
+            # Print line below header to make markdown-compatible tables
+            print("-|-".join("-" * len(i) for i in header))
 
-        # Wrap the histogram in backticks to enable fixed width rendering and make the
-        # histogram more compact
+        # Wrap the histogram in backticks and ONE EIGHTH BLOCKs
+        # In markdown this enables fixed with rendering.
+        # Unfortunately, the backticks are not always enough, and some spaces are eaten,
+        # so we add the ONE EIGHTH BLOCKs to make sure the histogram is rendered
+        # correctly.
         for idx, (hist, *_) in enumerate(annotated_hists):
-            annotated_hists[idx][0] = f"`{hist}`"
+            annotated_hists[idx][0] = f"`▕{hist}▏`"
 
     print("\n".join(join_str.join(hl) for hl in annotated_hists))
 
@@ -58,7 +62,7 @@ def print_hist(
             **named_xs,
         )
         if markdown_mode:
-            print(footer + join_str)
+            print(f"`▕{footer}▏`{join_str}")
         else:
             print(footer)
 
