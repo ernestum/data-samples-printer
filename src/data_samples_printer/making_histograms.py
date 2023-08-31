@@ -240,4 +240,4 @@ def make_min_max_footer(
 
     min_str = f"{min_value:.2f}"
     max_str = f"{max_value:.2f}"
-    return min_str + " " * max(1, (width - len(min_str) - len(max_str) + 1)) + max_str
+    return min_str + " " * max(1, (width - len(min_str) - len(max_str) - 4)) + max_str
