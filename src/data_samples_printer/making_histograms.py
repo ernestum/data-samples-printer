@@ -189,9 +189,6 @@ def make_header(annotations: Annotations, add_names_column: bool) -> List[str]:
     """Makes a header with the given annotations to print above annotated histograms."""
     header = ["dist"]
 
-    if add_names_column:
-        header.append("name")
-
     if Annotations.ADD_MEAN in annotations:
         header.append("mean")
 
@@ -206,6 +203,9 @@ def make_header(annotations: Annotations, add_names_column: bool) -> List[str]:
 
     if Annotations.ADD_MAX in annotations:
         header.append("max")
+
+    if add_names_column:
+        header.append("name")
 
     return header
 
