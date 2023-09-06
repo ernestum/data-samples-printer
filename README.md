@@ -16,7 +16,12 @@
 
 ---
 
-Don't be just mean and standart, print histograms as unicode instead!
+> Don't be just mean and standard, print histograms as unicode instead!
+
+> This project is inspired by [sparklines](https://en.wikipedia.org/wiki/Sparkline) but works for any kind of data samples that can be represented as a histogram.
+
+> Did you ever enjoy being graded by a single number? No? Then why do you do it to your data?
+
 
 ## Installation
 
@@ -100,13 +105,32 @@ The documentation is automatically generated from the content of the [docs direc
 
 ### Releasing
 
-Trigger the [Draft release workflow](https://github.com/ernestum/data-samples-printer/actions/workflows/draft_release.yml)
-(press _Run workflow_). This will update the changelog & version and create a GitHub release which is in _Draft_ state.
+To make a new release:
 
-Find the draft release from the
+```sh
+poetry version <major|minor|patch>  # Update the version number
+poetry run kacl-cli release <new release number> --modify --auto-link  # Update the changelog
+git add CHANGELOG.md pyproject.toml
+git commit -m "Release <new release number>"
+git tag <new release number>
+git push origin <new release number>
+```
+
+Then create a new release on GitHub with the output of:
+
+```sh
+poetry run kacl-cli get <new release number>
+```
+
 [GitHub releases](https://github.com/ernestum/data-samples-printer/releases) and publish it. When
  a release is published, it'll trigger [release](https://github.com/ernestum/data-samples-printer/blob/master/.github/workflows/release.yml) workflow which creates PyPI
  release and deploys updated documentation.
+
+Then run
+```shell
+poetry run mkdocs gh-deploy --force
+```
+to update the documentation.
 
 ### Pre-commit
 
